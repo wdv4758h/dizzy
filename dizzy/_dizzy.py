@@ -17,3 +17,34 @@ def hamming_distance(s1, s2):
 
     else:
         raise ValueError('Unspport types')
+
+def levenshtein_distance(s1, s2):
+
+    if isinstance(s1, str) and isinstance(s2, str):
+
+        if s1 == s2: return 0
+
+        len1, len2 = len(s1), len(s2)
+
+        if not len1: return len2
+        if not len2: return len1
+
+        if len1 < len2:
+            len1, len2 = len2, len1
+            s1, s2 = s2, s1
+
+        prev = list(range(len2+1))
+
+        for i in range(1, len1+1):
+            prev[0] = i
+            last = i-1
+
+            for j in range(1, len2+1):
+                old = prev[j]
+                prev[j] = min(prev[j]+1, prev[j-1]+1, last+(s1[i-1] != s2[j-1]))
+                last = old
+
+        return prev[len2]
+
+    else:
+        raise ValueError('Unspport types')
