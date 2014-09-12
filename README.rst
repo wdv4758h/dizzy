@@ -9,3 +9,4 @@ What have been done ?
 
 - Hamming Distance
 - Levenshtein Distance
+- Damerau-Levenshtein Distance
