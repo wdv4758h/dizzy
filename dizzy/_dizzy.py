@@ -33,18 +33,18 @@ def levenshtein_distance(s1, s2):
             len1, len2 = len2, len1
             s1, s2 = s2, s1
 
-        prev = list(range(len2+1))
+        cur = list(range(len2+1))
 
         for i in range(1, len1+1):
-            prev[0] = i
+            cur[0] = i
             last = i-1
 
             for j in range(1, len2+1):
-                old = prev[j]
-                prev[j] = min(prev[j]+1, prev[j-1]+1, last+(s1[i-1] != s2[j-1]))
+                old = cur[j]
+                cur[j] = min(cur[j]+1, cur[j-1]+1, last+(s1[i-1] != s2[j-1]))
                 last = old
 
-        return prev[len2]
+        return cur[len2]
 
     else:
         raise ValueError('Unspport types')
