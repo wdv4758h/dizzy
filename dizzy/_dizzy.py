@@ -86,3 +86,15 @@ def damerau_levenshtein_distance(s1, s2):
 
     else:
         raise ValueError('Unspport types')
+
+def jaccard_distance(s1, s2):
+    '''jaccard distance
+    http://en.wikipedia.org/wiki/Jaccard_index
+
+    jaccard distance doesn't consider term frequency
+
+    0 means equal, and 1 totally different
+    '''
+
+    set1, set2 = set(s1), set(s2)
+    return 1 - len(set1 & set2) / len(set1 | set2)
