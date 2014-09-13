@@ -98,3 +98,13 @@ def jaccard_distance(s1, s2):
 
     set1, set2 = set(s1), set(s2)
     return 1 - len(set1 & set2) / len(set1 | set2)
+
+def sorensen_distance(s1, s2):
+    '''Sørensen distance
+    http://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient
+
+    0 means equal, and 1 totally different
+    '''
+
+    set1, set2 = set(s1), set(s2)
+    return 1 - 2 * len(set1 & set2) / (len(set1) + len(set2))
