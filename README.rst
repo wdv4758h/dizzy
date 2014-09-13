@@ -11,6 +11,7 @@ What have been done ?
 - Levenshtein Distance
 - Damerau-Levenshtein Distance
 - Jaccard Distance
+- Sørensen distance
 
 Other Implementations
 ========================================
