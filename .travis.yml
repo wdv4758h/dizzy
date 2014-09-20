@@ -3,7 +3,7 @@ python:
     - "3.3"
     - "3.4"
     - "pypy3"
-script: pyython test.py
+script: python test.py
 notifications:
     email:
         - wdv4758h@gmail.com
