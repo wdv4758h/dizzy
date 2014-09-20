@@ -2,7 +2,14 @@
 dizzy
 ========================================
 
-I wrote this with Python 3.4
+I wrote this with Python 3
+
+Compatible
+========================================
+
+- CPython
+    * 3.3
+    * 3.4
 
 What have been done ?
 ========================================
@@ -11,7 +18,7 @@ What have been done ?
 - Levenshtein Distance
 - Damerau-Levenshtein Distance
 - Jaccard Distance
-- Sørensen distance
+- Sørensen Ddistance
 
 Other Implementations
 ========================================
