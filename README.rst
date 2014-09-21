@@ -22,6 +22,13 @@ What have been done ?
 - Jaro Winkler Distance
 - American Soundex
 
+Todo
+========================================
+
+- Metaphone
+- Double Metaphone
+- NYSIIS (New York State Identification and Intelligence System)
+
 Other Implementations
 ========================================
 
@@ -29,3 +36,7 @@ Other Implementations
 - `jellyfish <https://github.com/sunlightlabs/jellyfish>`_
 - `distance <https://github.com/doukremt/distance>`_
 - `python-Levenshtein <https://github.com/ztane/python-Levenshtein>`_
+- `Spanish-Metaphone <https://github.com/amsqr/Spanish-Metaphone>`_
+- `metaphone <https://github.com/oubiwann/metaphone>`_
+- `double-metaphone <https://github.com/dracos/double-metaphone>`_
+- `Fuzzy <https://bitbucket.org/yougov/fuzzy/overview>`_
