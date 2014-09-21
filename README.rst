@@ -20,6 +20,7 @@ What have been done ?
 - Jaccard Distance
 - Sørensen Distance
 - Jaro Winkler Distance
+- American Soundex
 
 Other Implementations
 ========================================
