@@ -18,7 +18,8 @@ What have been done ?
 - Levenshtein Distance
 - Damerau-Levenshtein Distance
 - Jaccard Distance
-- Sørensen Ddistance
+- Sørensen Distance
+- Jaro Winkler Distance
 
 Other Implementations
 ========================================
