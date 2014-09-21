@@ -58,5 +58,20 @@ class TestDizzy(unittest.TestCase):
         for s1, s2, value in cases:
             self.assertEqual(dizzy.sorensen_distance(s1, s2), value)
 
+    def test_jaro_winkler_distance(self):
+        cases = [
+                 ('martha', 'marhta', 0.961111111111111111),
+                 ('jones', 'johnson', 0.8323809523809523),
+                 ('dwayne', 'duane', 0.84),
+                 ('dixon', 'dicksonx', 0.8133333333333332),
+                 ('fvie', 'ten', 0),
+                 ('al', 'al', 1.0),
+                 ('henka', 'henkan', 0.9666666666666667),
+                 ('abcvwxyz', 'cabvwxyz', 0.9583333333333333),
+            ]
+
+        for s1, s2, value in cases:
+            self.assertEqual(dizzy.jaro_winkler_distance(s1, s2), value)
+
 if __name__ == '__main__':
     unittest.main()

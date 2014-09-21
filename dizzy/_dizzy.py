@@ -108,3 +108,67 @@ def sorensen_distance(s1, s2):
 
     set1, set2 = set(s1), set(s2)
     return 1 - 2 * len(set1 & set2) / (len(set1) + len(set2))
+
+def jaro_winkler_distance(s1, s2):
+    '''
+    http://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance
+    '''
+
+    if isinstance(s1, str) and isinstance(s2, str):
+
+        len1, len2 = len(s1), len(s2)
+
+        if not len1:
+            if not len2:
+                return 1
+            return 0
+
+        if len1 < len2:
+            len1, len2 = len2, len1
+            s1, s2 = s2, s1
+
+        # match window
+        window = len1//2 - 1
+        match = 0
+        matches = []
+        for i in range(len2):
+            if i-window > 0:
+                j = i-window
+            else:
+                j = 0
+            if s2[i] in s1[j:i+window+1]:
+                match += 1
+                matches.append(j + s1[j:i+window+1].index(s2[i]))
+
+        if not match:
+            return 0
+
+        # trans transpositions need in matches
+        trans = 0
+        for i, j in zip(matches, sorted(matches)):
+            trans += i != j
+
+        # get max common prefix
+        prefix = 0
+        for i, j in zip(s1, s2):
+            if i == j:
+                prefix += 1
+            else:
+                break
+
+        # prefix max is 4 ...
+        if prefix > 4:
+            prefix = 4
+
+        # transpositions need to be floor
+        d = (   match / len1
+              + match / len2
+              + (match - trans//2) / match )
+        d = 1/3 * d
+
+        jw = d + prefix * 0.1 * (1 - d)
+
+        return jw
+
+    else:
+        raise ValueError('Unspport types')
