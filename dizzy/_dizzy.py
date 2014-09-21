@@ -1,3 +1,5 @@
+from itertools import groupby
+
 def hamming_distance(s1, s2):
     '''return hamming distance
 
@@ -172,3 +174,29 @@ def jaro_winkler_distance(s1, s2):
 
     else:
         raise ValueError('Unspport types')
+
+def soundex(s):
+    '''
+    http://en.wikipedia.org/wiki/Soundex
+    http://rosettacode.org/wiki/Soundex#Python
+
+    b, f, p, v -> 1
+    c, g, j, k, q, s, x, z -> 2
+    d, t -> 3
+    l -> 4
+    m, n -> 5
+    r -> 6
+
+    two letters with the same number separated by 'h' or 'w' are coded as a single number
+    '''
+
+    codes = ('bfpv','cgjkqsxz', 'dt', 'l', 'mn', 'r')
+    sound = { key: str(index+1) for index, string in enumerate(codes) for key in string }
+
+    cmap = lambda key: sound.get(key, '9')  # '9' if not found (default is None)
+    s = s.replace('h', '').replace('w', '')
+    sdx = ''.join(cmap(key) for key in s.lower())
+    sdx2 = s[0].upper() + ''.join(k for k, g in tuple(groupby(sdx))[1:] if k!='9')
+    sdx3 = sdx2[0:4].ljust(4, '0')
+
+    return sdx3

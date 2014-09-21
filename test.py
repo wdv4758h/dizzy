@@ -59,8 +59,7 @@ class TestDizzy(unittest.TestCase):
             self.assertEqual(dizzy.sorensen_distance(s1, s2), value)
 
     def test_jaro_winkler_distance(self):
-        cases = [
-                 ('martha', 'marhta', 0.961111111111111111),
+        cases = [('martha', 'marhta', 0.961111111111111111),
                  ('jones', 'johnson', 0.8323809523809523),
                  ('dwayne', 'duane', 0.84),
                  ('dixon', 'dicksonx', 0.8133333333333332),
@@ -72,6 +71,45 @@ class TestDizzy(unittest.TestCase):
 
         for s1, s2, value in cases:
             self.assertEqual(dizzy.jaro_winkler_distance(s1, s2), value)
+
+    def test_soundex(self):
+        cases = [('Soundex', 'S532'),
+                 ('Example', 'E251'),
+                 ('Ciondecks', 'C532'),
+                 ('Sownteks', 'S532'),
+                 ('Ekzampul', 'E251'),
+                 ('Euler', 'E460'),
+                 ('Gauss', 'G200'),
+                 ('Hilbert', 'H416'),
+                 ('Knuth', 'K530'),
+                 ('Lloyd', 'L300'),
+                 ('Lukasiewicz', 'L222'),
+                 ('Ellery', 'E460'),
+                 ('Ghosh', 'G200'),
+                 ('Heilbronn', 'H416'),
+                 ('Kant', 'K530'),
+                 ('Ladd', 'L300'),
+                 ('Lissajous', 'L222'),
+                 ('Wheaton', 'W350'),
+                 ('Burroughs', 'B620'),
+                 ('Burrows', 'B620'),
+                 ("O'Hara", 'O600'),
+                 ('Washington', 'W252'),
+                 ('Lee', 'L000'),
+                 ('Gutierrez', 'G362'),
+                 ('Pfister', 'P236'),
+                 ('Jackson', 'J250'),
+                 ('Tymczak', 'T522'),
+                 ('VanDeusen', 'V532'),
+                 ('Ashcraft', 'A261'),
+                 ('Ashcroft', 'A261'),
+                 ('Robert', 'R163'),
+                 ('Rupert', 'R163'),
+                 ('Rubin', 'R150'),
+            ]
+
+        for s, value in cases:
+            self.assertEqual(dizzy.soundex(s), value)
 
 if __name__ == '__main__':
     unittest.main()
