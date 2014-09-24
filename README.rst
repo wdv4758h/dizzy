@@ -40,3 +40,5 @@ Other Implementations
 - `metaphone <https://github.com/oubiwann/metaphone>`_
 - `double-metaphone <https://github.com/dracos/double-metaphone>`_
 - `Fuzzy <https://bitbucket.org/yougov/fuzzy/overview>`_
+- `JaroWinkler <https://github.com/richmilne/JaroWinkler>`_
+- `string_distance_metrics <https://github.com/ianozsvald/string_distance_metrics>`_
